@@ -37,13 +37,11 @@ Deploy anywhere static (GitHub Pages, Netlify, Vercel).
 
 ## 🖼 Photos
 
-Product, gallery, hero and about images are **real, license-free photos served from Unsplash's CDN** (hotlink-friendly, no download needed). Every image has an `onerror` fallback, so if one ever fails to load the card gracefully falls back to the typographic design instead of showing a broken image.
+The site uses **real store photos** bundled in `assets/img/` (products, hero, about, gallery & collections). Every image has an `onerror` fallback, so if one ever fails to load the card gracefully falls back to the typographic design instead of showing a broken image.
 
-**To use your own photos** (e.g. your `@thriftwearly` shots): drop files into `assets/img/` and either
-- change the `img` id in the `products` array in `js/main.js`, or
-- replace the `src` with a local path like `assets/img/tee.jpg`.
+**To change a product photo:** drop a new file into `assets/img/` and update that product's `img` filename in the `products` array in `js/main.js`. Hero, about, gallery and collection photos are referenced in `index.html` / the `gtiles` array in `js/main.js`.
 
-Hero & about photos are set directly in `index.html` (search for `unsplash`).
+`assets/inspo/` holds the design-reference screenshots used to shape the look — they are **not** displayed on the site.
 
 ## 🔧 Customize
 

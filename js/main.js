@@ -91,26 +91,25 @@
   /* ============================================================
      PRODUCT DATA
      ============================================================ */
-  // `img` = Unsplash photo id (loaded from Unsplash's free CDN, hotlink-friendly).
-  // Swap any id for your own store photo, or drop a local path (e.g. "assets/img/tee.jpg") into `src` below.
+  // `img` = real store photo in assets/img/. Swap the filename to change a product's picture.
   const products = [
-    { id: 1, name: "Oversized Waffle Tee", cat: "tops", tag: "NEW", price: 199, was: 499, glyph: "TEE", note: "Cotton · Unisex", img: "1521572163474-6864f9cf17ab" },
-    { id: 2, name: "Ring Graphic Tee", cat: "tops", tag: "HOT", price: 149, was: 399, glyph: "RING", note: "Streetwear fit", img: "1503341504253-dff4815485f1" },
-    { id: 3, name: "Premium Linen Shirt", cat: "shirts", tag: "IMPORT", price: 349, was: 899, glyph: "LINEN", note: "Breathable · S–XL", img: "1602810318383-e386cc2a3ccf" },
-    { id: 4, name: "Classic Polo Tee", cat: "tops", tag: "", price: 179, was: 449, glyph: "POLO", note: "Everyday staple", img: "1586790170083-2f9ceadc732d" },
-    { id: 5, name: "Slim Fit Denim", cat: "bottoms", tag: "NEW", price: 399, was: 1099, glyph: "JEANS", note: "Mid-rise · Blue", img: "1542272604-787c3835535d" },
-    { id: 6, name: "Baggy Cargo Pants", cat: "bottoms", tag: "HOT", price: 449, was: 1199, glyph: "CARGO", note: "6-pocket · Y2K", img: "1517445312882-bc9910d016b7" },
-    { id: 7, name: "Floral Cord Set", cat: "women", tag: "IMPORT", price: 499, was: 1299, glyph: "CORD", note: "Co-ord · Women", img: "1595777457583-95e059d581b8" },
-    { id: 8, name: "Slip Midi Dress", cat: "women", tag: "", price: 399, was: 999, glyph: "DRESS", note: "Satin finish", img: "1566174053879-31528523f8ae" },
-    { id: 9, name: "Knitted Sweater", cat: "winter", tag: "COZY", price: 349, was: 899, glyph: "KNIT", note: "Warm · Oversized", img: "1576871337622-98d48d1cf531" },
-    { id: 10, name: "Longline Trench Coat", cat: "winter", tag: "IMPORT", price: 699, was: 1999, glyph: "COAT", note: "Statement layer", img: "1591047139829-d91aecb6caea" },
-    { id: 11, name: "Checked Casual Shirt", cat: "shirts", tag: "", price: 249, was: 649, glyph: "SHIRT", note: "Flannel feel", img: "1588359348347-9bc6cbbb689e" },
-    { id: 12, name: "Vintage Wash Jeans", cat: "bottoms", tag: "NEW", price: 429, was: 1149, glyph: "WASH", note: "Distressed · Retro", img: "1475178626620-a4d074967452" },
+    { id: 1, name: "Oversized Cotton Tee", cat: "tops", tag: "NEW", price: 199, was: 499, glyph: "TEE", note: "Cotton · Unisex", img: "tee-white.jpeg" },
+    { id: 2, name: "Graphic Print Tee", cat: "tops", tag: "HOT", price: 249, was: 599, glyph: "GRAPHIC", note: "Streetwear fit", img: "tee-graphic.jpeg" },
+    { id: 3, name: "Premium Linen Shirt", cat: "shirts", tag: "IMPORT", price: 349, was: 899, glyph: "LINEN", note: "Breathable · S–XL", img: "shirt-linen.jpeg" },
+    { id: 4, name: "Star Cotton Tee", cat: "tops", tag: "", price: 179, was: 449, glyph: "STAR", note: "Everyday staple", img: "tee-star.jpeg" },
+    { id: 5, name: "Slim Fit Denim", cat: "bottoms", tag: "NEW", price: 399, was: 1099, glyph: "DENIM", note: "Mid-rise · Blue", img: "denim-blue.jpeg" },
+    { id: 6, name: "Baggy Wash Jeans", cat: "bottoms", tag: "HOT", price: 449, was: 1199, glyph: "BAGGY", note: "Relaxed · Y2K", img: "jeans-baggy.jpeg" },
+    { id: 7, name: "Checked Flannel Shirt", cat: "shirts", tag: "", price: 299, was: 749, glyph: "CHECK", note: "Overshirt · Cozy", img: "shirt-checked.jpeg" },
+    { id: 8, name: "Distressed Baggy Jeans", cat: "bottoms", tag: "NEW", price: 479, was: 1249, glyph: "RIPPED", note: "Distressed · Retro", img: "jeans-distressed.jpeg" },
+    { id: 9, name: "Essential Hoodie", cat: "outer", tag: "COZY", price: 449, was: 1099, glyph: "HOODIE", note: "Heavy · Oversized", img: "hoodie-black.jpeg" },
+    { id: 10, name: "'1977' Graphic Hoodie", cat: "outer", tag: "HOT", price: 549, was: 1399, glyph: "1977", note: "Statement piece", img: "hoodie-1977.jpeg" },
+    { id: 11, name: "Varsity Bomber Jacket", cat: "outer", tag: "IMPORT", price: 799, was: 2199, glyph: "BOMBER", note: "Imported · Rare", img: "jacket-varsity.jpeg" },
+    { id: 12, name: "Washed Black Denim", cat: "bottoms", tag: "", price: 429, was: 1149, glyph: "BLACK", note: "Faded · Straight", img: "denim-black.jpeg" },
   ];
 
   const rupee = (n) => "₹" + n.toLocaleString("en-IN");
-  // Build an Unsplash CDN url. On failure the <img> removes itself, revealing the glyph fallback.
-  const photo = (id, w = 700) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
+  // Local store photo. On failure the <img> removes itself, revealing the glyph fallback.
+  const photo = (file) => `assets/img/${file}`;
 
   /* ---------- Render products ---------- */
   const grid = $("#productGrid");
@@ -130,7 +129,7 @@
           <button class="card__wish ${wished}" data-wish="${p.id}" aria-label="Add to wishlist">${heart}</button>
         </div>
         <div class="card__body">
-          <span class="card__cat">${p.cat === "tops" ? "Tees & Polos" : p.cat === "bottoms" ? "Denims" : p.cat}</span>
+          <span class="card__cat">${{ tops: "Tees", bottoms: "Denims", shirts: "Shirts", outer: "Outerwear" }[p.cat] || p.cat}</span>
           <span class="card__name">${p.name}</span>
           <span class="card__meta">${p.note}</span>
           <div class="card__foot">
@@ -332,21 +331,21 @@
      GALLERY
      ============================================================ */
   const gtiles = [
-    { t: "NEW DROP", img: "1489987707025-afc232f7ea0f" },
-    { t: "TEES", img: "1523381210434-271e8be1f52b" },
-    { t: "LINEN", img: "1596755094514-f87e34085b2c" },
-    { t: "DENIM", img: "1602810318383-e386cc2a3ccf" },
-    { t: "CORD SETS", img: "1595777457583-95e059d581b8" },
-    { t: "IMPORTED STOCK", img: "1441984904996-e0b6ba687e04" },
-    { t: "WINTER", img: "1576871337622-98d48d1cf531" },
-    { t: "STREETWEAR", img: "1503341504253-dff4815485f1" },
+    { t: "STREETWEAR", img: "model-back.jpeg" },
+    { t: "TEES", img: "tee-graphic.jpeg" },
+    { t: "LINEN", img: "shirt-linen.jpeg" },
+    { t: "DENIM", img: "denim-blue.jpeg" },
+    { t: "OUTERWEAR", img: "jacket-varsity.jpeg" },
+    { t: "THE LOOKBOOK", img: "lookbook.jpeg" },
+    { t: "HOODIES", img: "hoodie-1977.jpeg" },
+    { t: "COMING SOON", img: "coming-soon.jpeg" },
   ];
   $("#gallery-grid").innerHTML = gtiles
     .map(
       (g, i) => `
     <a href="https://www.instagram.com/thriftwearly/" target="_blank" rel="noopener" class="gtile" style="background:linear-gradient(${140 + i * 25}deg,var(--surface),var(--bg))">
       <span class="gtile__glyph">${g.t.split(" ")[0]}</span>
-      <img class="gtile__img" src="${photo(g.img, 700)}" alt="${g.t}" loading="lazy" onerror="this.remove()" />
+      <img class="gtile__img" src="${photo(g.img)}" alt="${g.t}" loading="lazy" onerror="this.remove()" />
       <span class="gtile__over"><span>${g.t}</span></span>
     </a>`
     )
