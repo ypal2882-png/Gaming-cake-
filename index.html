@@ -10,11 +10,22 @@
 <link rel="stylesheet" href="css/style.css" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0b0b'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23d9f24a' font-family='Arial' font-weight='bold'>W</text></svg>" />
 
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ============ CURSOR GLOW ============ -->
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ============ FILM GRAIN ============ -->
+<div class="grain" aria-hidden="true"></div>
+
 <!-- ============ PRELOADER ============ -->
 <div class="preloader" id="preloader">
   <div class="preloader__inner">
-    <span class="preloader__word">WEARLY</span>
-    <span class="preloader__bar"><span class="preloader__fill"></span></span>
+    <span class="preloader__word" data-text="WEARLY">WEARLY</span>
+    <span class="preloader__tag">THRIFT IT · WEAR IT</span>
+    <span class="preloader__bar"><span class="preloader__fill" id="preFill"></span></span>
+    <span class="preloader__pct" id="prePct">0%</span>
   </div>
 </div>
 
@@ -102,8 +113,8 @@
       </div>
     </div>
 
-    <div class="hero__card reveal">
-      <div class="pricecard">
+    <div class="hero__card" data-parallax="-20">
+      <div class="pricecard" data-tilt>
         <div class="pricecard__top">
           <span class="pricecard__tag">NEW DROP</span>
           <span class="pricecard__heart">♡</span>
@@ -430,3 +441,4 @@
 <div class="toast" id="toast" role="status"></div>
 
 <script src="js/main.js"></script>
+<script src="js/fx.js"></script>
