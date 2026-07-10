@@ -108,8 +108,9 @@
       <li><a href="#home" class="nav__link">Home</a></li>
       <li><a href="#collections" class="nav__link">Collections</a></li>
       <li><a href="#shop" class="nav__link">Shop</a></li>
+      <li><a href="#lookbook" class="nav__link">Lookbook</a></li>
+      <li><a href="#reels" class="nav__link">Reels</a></li>
       <li><a href="#about" class="nav__link">About</a></li>
-      <li><a href="#gallery" class="nav__link">Gallery</a></li>
       <li><a href="#visit" class="nav__link">Visit</a></li>
     </ul>
 
@@ -175,7 +176,7 @@
         </div>
         <div class="pricecard__art">
           <span class="pricecard__big">W</span>
-          <img class="pricecard__img" src="assets/img/model-back.jpeg" alt="Streetwear fit from Wearly" loading="eager" onerror="this.remove()" />
+          <img class="pricecard__img" src="assets/img/tee-editorial.jpeg" alt="Editorial streetwear fit from Wearly" loading="eager" onerror="this.remove()" />
           <span class="pricecard__ribbon">FRESH IMPORTED STOCK</span>
         </div>
         <div class="pricecard__foot">
@@ -329,11 +330,44 @@
   </div>
 </section>
 
-<!-- ============ GALLERY ============ -->
-<section class="section" id="gallery">
+<!-- ============ LOOKBOOK ============ -->
+<section class="section" id="lookbook">
   <div class="container">
     <div class="section__head reveal">
-      <span class="kicker">04 — The Feed</span>
+      <span class="kicker">04 — Lookbook</span>
+      <h2 class="section__title">Fits from the <span class="italic">rack</span></h2>
+      <p class="section__lead">Real pieces, styled. Get inspired — then come build your own.</p>
+    </div>
+  </div>
+  <div class="lookbook">
+    <figure class="lb lb--tall reveal">
+      <img src="assets/img/tee-editorial.jpeg" alt="Washed oversized tee, editorial" loading="lazy" onerror="this.closest('.lb').classList.add('lb--empty')" />
+      <figcaption><span>Washed &amp; oversized</span><small>Tees</small></figcaption>
+    </figure>
+    <figure class="lb reveal">
+      <img src="assets/img/look-1.jpeg" alt="Dark streetwear layers" loading="lazy" onerror="this.closest('.lb').classList.add('lb--empty')" />
+      <figcaption><span>Dark layers</span><small>Hoodies</small></figcaption>
+    </figure>
+    <figure class="lb reveal">
+      <img src="assets/img/hoodie-culture.jpeg" alt="Culture graphic hoodie" loading="lazy" onerror="this.closest('.lb').classList.add('lb--empty')" />
+      <figcaption><span>Statement graphics</span><small>Outerwear</small></figcaption>
+    </figure>
+    <figure class="lb lb--wide reveal">
+      <img src="assets/img/look-2.jpeg" alt="Full streetwear fit" loading="lazy" onerror="this.closest('.lb').classList.add('lb--empty')" />
+      <figcaption><span>Head-to-toe fits</span><small>The full look</small></figcaption>
+    </figure>
+    <figure class="lb reveal">
+      <img src="assets/img/model-back.jpeg" alt="Back graphic tee" loading="lazy" onerror="this.closest('.lb').classList.add('lb--empty')" />
+      <figcaption><span>Back prints</span><small>Graphics</small></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section section--alt" id="gallery">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="kicker">05 — The Feed</span>
       <h2 class="section__title">Straight from <span class="italic">@thriftwearly</span></h2>
       <p class="section__lead">A peek at the racks, the drops and the fits. Tap through to the real feed for daily stock.</p>
     </div>
@@ -344,11 +378,29 @@
   </div>
 </section>
 
+<!-- ============ REELS ============ -->
+<section class="section" id="reels">
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="kicker">06 — In Motion</span>
+      <h2 class="section__title">Wearly <span class="italic">reels</span></h2>
+      <p class="section__lead">Drops, fits and store vibes — tap any reel for sound.</p>
+    </div>
+    <div class="reels-wall" id="reelsWall">
+      <div class="reel reveal"><video src="assets/video/reel-1.mp4" muted loop playsinline preload="metadata"></video><span class="reel__play">▶</span><button class="reel__sound" aria-label="Toggle sound">🔇</button></div>
+      <div class="reel reveal"><video src="assets/video/reel-2.mp4" muted loop playsinline preload="metadata"></video><span class="reel__play">▶</span><button class="reel__sound" aria-label="Toggle sound">🔇</button></div>
+      <div class="reel reveal"><video src="assets/video/reel-3.mp4" muted loop playsinline preload="metadata"></video><span class="reel__play">▶</span><button class="reel__sound" aria-label="Toggle sound">🔇</button></div>
+      <div class="reel reveal"><video src="assets/video/reel-4.mp4" muted loop playsinline preload="metadata"></video><span class="reel__play">▶</span><button class="reel__sound" aria-label="Toggle sound">🔇</button></div>
+      <div class="reel reveal"><video src="assets/video/reel-5.mp4" muted loop playsinline preload="metadata"></video><span class="reel__play">▶</span><button class="reel__sound" aria-label="Toggle sound">🔇</button></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TESTIMONIALS ============ -->
 <section class="section section--alt" id="reviews">
   <div class="container">
     <div class="section__head reveal">
-      <span class="kicker">05 — Loved by Gwalior</span>
+      <span class="kicker">07 — Loved by Gwalior</span>
       <h2 class="section__title">What the <span class="italic">crew</span> says</h2>
     </div>
     <div class="reviews">
@@ -362,7 +414,7 @@
 <section class="section" id="visit">
   <div class="container visit">
     <div class="visit__info reveal">
-      <span class="kicker">06 — Come thru</span>
+      <span class="kicker">08 — Come thru</span>
       <h2 class="section__title">Visit the <span class="italic">store</span></h2>
       <p class="section__lead">Walk in, dig through the rack, try the fits. We're easy to find and always happy to style you.</p>
 

@@ -96,7 +96,7 @@
     { id: 1, name: "Oversized Cotton Tee", cat: "tops", tag: "NEW", price: 199, was: 499, glyph: "TEE", note: "Cotton · Unisex", img: "tee-white.jpeg" },
     { id: 2, name: "Graphic Print Tee", cat: "tops", tag: "HOT", price: 249, was: 599, glyph: "GRAPHIC", note: "Streetwear fit", img: "tee-graphic.jpeg" },
     { id: 3, name: "Premium Linen Shirt", cat: "shirts", tag: "IMPORT", price: 349, was: 899, glyph: "LINEN", note: "Breathable · S–XL", img: "shirt-linen.jpeg" },
-    { id: 4, name: "Star Cotton Tee", cat: "tops", tag: "", price: 179, was: 449, glyph: "STAR", note: "Everyday staple", img: "tee-star.jpeg" },
+    { id: 4, name: "Oversized Washed Tee", cat: "tops", tag: "", price: 229, was: 549, glyph: "WASHED", note: "Faded · Drop-shoulder", img: "look-3.jpeg" },
     { id: 5, name: "Slim Fit Denim", cat: "bottoms", tag: "NEW", price: 399, was: 1099, glyph: "DENIM", note: "Mid-rise · Blue", img: "denim-blue.jpeg" },
     { id: 6, name: "Baggy Wash Jeans", cat: "bottoms", tag: "HOT", price: 449, was: 1199, glyph: "BAGGY", note: "Relaxed · Y2K", img: "jeans-baggy.jpeg" },
     { id: 7, name: "Checked Flannel Shirt", cat: "shirts", tag: "", price: 299, was: 749, glyph: "CHECK", note: "Overshirt · Cozy", img: "shirt-checked.jpeg" },
@@ -105,6 +105,12 @@
     { id: 10, name: "'1977' Graphic Hoodie", cat: "outer", tag: "HOT", price: 549, was: 1399, glyph: "1977", note: "Statement piece", img: "hoodie-1977.jpeg" },
     { id: 11, name: "Varsity Bomber Jacket", cat: "outer", tag: "IMPORT", price: 799, was: 2199, glyph: "BOMBER", note: "Imported · Rare", img: "jacket-varsity.jpeg" },
     { id: 12, name: "Washed Black Denim", cat: "bottoms", tag: "", price: 429, was: 1149, glyph: "BLACK", note: "Faded · Straight", img: "denim-black.jpeg" },
+    { id: 13, name: "Essential Zip Hoodie", cat: "outer", tag: "NEW", price: 549, was: 1399, glyph: "ZIP", note: "Heavyweight · Black", img: "hoodie-zip.jpeg" },
+    { id: 14, name: "Puffer Jacket", cat: "outer", tag: "WINTER", price: 899, was: 2499, glyph: "PUFFER", note: "Insulated · Statement", img: "jacket-puffer.jpeg" },
+    { id: 15, name: "Denim Trucker Jacket", cat: "outer", tag: "DROP", price: 749, was: 1999, glyph: "TRUCKER", note: "Classic · Layerable", img: "jacket-denim.jpeg" },
+    { id: 16, name: "Graphic Streetwear Tee", cat: "tops", tag: "HOT", price: 279, was: 699, glyph: "STREET", note: "Bold print · Unisex", img: "tee-trio.jpeg" },
+    { id: 17, name: "Culture Graphic Hoodie", cat: "outer", tag: "IMPORT", price: 649, was: 1699, glyph: "CULTURE", note: "Oversized · Rare", img: "hoodie-culture.jpeg" },
+    { id: 18, name: "Drop-Shoulder Print Tee", cat: "tops", tag: "", price: 259, was: 629, glyph: "PRINT", note: "Streetwear staple", img: "tee-quadro.jpeg" },
   ];
 
   const rupee = (n) => "₹" + n.toLocaleString("en-IN");
@@ -295,6 +301,50 @@
   });
 
   /* ============================================================
+     REELS (video wall)
+     ============================================================ */
+  const reels = $$(".reel");
+  if (reels.length) {
+    const reduceM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const muteOthers = (except) => reels.forEach((o) => {
+      if (o === except) return;
+      const ov = o.querySelector("video");
+      if (ov) ov.muted = true;
+      const ob = o.querySelector(".reel__sound");
+      if (ob) ob.textContent = "🔇";
+    });
+    const vIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const v = e.target.querySelector("video");
+        if (!v) return;
+        if (e.isIntersecting && !reduceM) v.play().catch(() => {});
+        else v.pause();
+      });
+    }, { threshold: 0.4 });
+    reels.forEach((r) => {
+      const v = r.querySelector("video");
+      const soundBtn = r.querySelector(".reel__sound");
+      if (!v) return;
+      vIO.observe(r);
+      v.addEventListener("play", () => r.classList.add("playing"));
+      v.addEventListener("pause", () => r.classList.remove("playing"));
+      r.addEventListener("click", (ev) => {
+        if (ev.target.closest(".reel__sound")) return;
+        if (v.paused) v.play().catch(() => {});
+        else v.pause();
+      });
+      soundBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const willUnmute = v.muted;
+        if (willUnmute) muteOthers(r);
+        v.muted = !v.muted;
+        soundBtn.textContent = v.muted ? "🔇" : "🔊";
+        if (!v.muted) v.play().catch(() => {});
+      });
+    });
+  }
+
+  /* ============================================================
      REVIEWS SLIDER
      ============================================================ */
   const reviews = [
@@ -334,11 +384,11 @@
     { t: "STREETWEAR", img: "model-back.jpeg" },
     { t: "TEES", img: "tee-graphic.jpeg" },
     { t: "LINEN", img: "shirt-linen.jpeg" },
-    { t: "DENIM", img: "denim-blue.jpeg" },
+    { t: "PUFFERS", img: "jacket-puffer.jpeg" },
     { t: "OUTERWEAR", img: "jacket-varsity.jpeg" },
     { t: "THE LOOKBOOK", img: "lookbook.jpeg" },
-    { t: "HOODIES", img: "hoodie-1977.jpeg" },
-    { t: "COMING SOON", img: "coming-soon.jpeg" },
+    { t: "HOODIES", img: "hoodie-culture.jpeg" },
+    { t: "FIT CHECK", img: "tee-star.jpeg" },
   ];
   $("#gallery-grid").innerHTML = gtiles
     .map(
