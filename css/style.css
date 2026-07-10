@@ -794,3 +794,54 @@ img.brand__mark {
 @media (prefers-reduced-motion: reduce) {
   .hero__feature-tag { animation: none; }
 }
+
+/* ============================================================
+   SITE-WIDE CINEMATIC BACKGROUND + MOTION
+   ============================================================ */
+:root { --bg: #08080b; --bg-2: #0d0d12; }
+body { background: #07070a; }
+
+.bg-fx {
+  position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none;
+  background: radial-gradient(130% 100% at 50% -10%, #12121c 0%, #0a0a10 42%, #060608 100%);
+}
+.bg-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.55; mix-blend-mode: screen; will-change: transform; }
+.bg-orb--1 { width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(43,107,255,0.38), transparent 66%); top: -14%; left: -10%; animation: orb1 28s ease-in-out infinite alternate; }
+.bg-orb--2 { width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(122,86,255,0.28), transparent 66%); top: 30%; right: -12%; animation: orb2 32s ease-in-out infinite alternate; }
+.bg-orb--3 { width: 46vw; height: 46vw; background: radial-gradient(circle, rgba(0,150,255,0.20), transparent 66%); bottom: -16%; left: 22%; animation: orb3 36s ease-in-out infinite alternate; }
+@keyframes orb1 { to { transform: translate(14%, 18%) scale(1.18); } }
+@keyframes orb2 { to { transform: translate(-16%, -12%) scale(1.12); } }
+@keyframes orb3 { to { transform: translate(12%, -16%) scale(1.22); } }
+.bg-beam {
+  position: absolute; top: -30%; left: 30%; width: 40%; height: 160%;
+  background: linear-gradient(100deg, transparent, rgba(43,107,255,0.06), transparent);
+  transform: rotate(12deg); filter: blur(30px); animation: beam 18s ease-in-out infinite; mix-blend-mode: screen;
+}
+@keyframes beam { 0%,100% { transform: translateX(-30%) rotate(12deg); opacity: 0.4; } 50% { transform: translateX(30%) rotate(12deg); opacity: 0.9; } }
+.bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 72px 72px; opacity: 0.5;
+  mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 5%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 5%, transparent 70%);
+  animation: gridDrift 40s linear infinite;
+}
+@keyframes gridDrift { to { background-position: 72px 72px; } }
+.bg-vignette {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 92% 78% at 50% 42%, transparent 52%, rgba(0,0,0,0.55) 100%);
+}
+
+/* ---- Let the cinematic bg show THROUGH sections ---- */
+.section { background: transparent; }
+.section--alt { background: rgba(12,12,18,0.5); }
+.strip { background: rgba(10,10,14,0.65); }
+.footer { background: linear-gradient(to bottom, rgba(8,8,12,0.55), rgba(6,6,9,0.92)); }
+
+/* soften hero's own layers so it blends with the global bg */
+.hero__bg .aurora { opacity: 0.55; }
+.blob { opacity: 0.35; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-orb, .bg-beam, .bg-grid { animation: none !important; }
+}
