@@ -1,14 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wearly — Thrift it. Wear it. | Aesthetic Streetwear, Gwalior</title>
-<meta name="description" content="Wearly (Thrift Wearly) — Gwalior's aesthetic streetwear thrift store. Fresh imported stock of tees, linen shirts, denims, cord sets & more. Patel Nagar, City Centre. Starting at ₹49." />
+<title>Wearly (Thrift Wearly) — Thrift Store & Streetwear in Gwalior</title>
+<meta name="description" content="Wearly (Thrift Wearly) is Gwalior's aesthetic streetwear thrift store at Patel Nagar, City Centre. Fresh imported stock — graphic tees, linen & flannel shirts, denims, hoodies & bomber jackets. Starting at ₹49. Thrift it, wear it." />
+<meta name="keywords" content="thrift store Gwalior, Thrift Wearly, Wearly Gwalior, streetwear Gwalior, thrift shop Patel Nagar, imported clothes Gwalior, oversized tees, baggy jeans, City Centre Gwalior, thriftwearly" />
+<meta name="author" content="Wearly — Thrift Wearly" />
+<meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#0b0b0b" />
+<link rel="canonical" href="https://thriftwearly.com/" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="business.business" />
+<meta property="og:site_name" content="Wearly — Thrift Wearly" />
+<meta property="og:title" content="Wearly (Thrift Wearly) — Streetwear Thrift Store, Gwalior" />
+<meta property="og:description" content="Fresh imported streetwear & pre-loved fits in Gwalior. Tees, shirts, denims, hoodies & jackets — starting at ₹49. Thrift it, wear it." />
+<meta property="og:image" content="assets/img/lookbook.jpeg" />
+<meta property="og:locale" content="en_IN" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Wearly (Thrift Wearly) — Streetwear Thrift Store, Gwalior" />
+<meta name="twitter:description" content="Fresh imported streetwear & pre-loved fits in Gwalior. Starting at ₹49. Thrift it, wear it." />
+<meta name="twitter:image" content="assets/img/lookbook.jpeg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0b0b'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23d9f24a' font-family='Arial' font-weight='bold'>W</text></svg>" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%232b6bff'/><text x='50' y='60' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='800'>W</text></svg>" />
+<link rel="apple-touch-icon" href="assets/img/logo.png" />
+
+<!-- Local-business structured data (Google rich results) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Wearly — Thrift Wearly",
+  "image": "assets/img/lookbook.jpeg",
+  "logo": "assets/img/logo.png",
+  "description": "Aesthetic streetwear thrift store in Gwalior — fresh imported stock of tees, shirts, denims, hoodies and jackets starting at ₹49.",
+  "url": "https://thriftwearly.com/",
+  "telephone": "+91-74772-13796",
+  "priceRange": "₹49–₹2199",
+  "currenciesAccepted": "INR",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Patel Nagar, City Centre",
+    "addressLocality": "Gwalior",
+    "addressRegion": "Madhya Pradesh",
+    "addressCountry": "IN"
+  },
+  "sameAs": ["https://www.instagram.com/thriftwearly/"],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "11:00",
+    "closes": "21:00"
+  }
+}
+</script>
+</head>
+<body>
 
 <!-- ============ SCROLL PROGRESS ============ -->
 <div class="progress" id="progress" aria-hidden="true"></div>
@@ -22,6 +74,7 @@
 <!-- ============ PRELOADER ============ -->
 <div class="preloader" id="preloader">
   <div class="preloader__inner">
+    <img class="preloader__logo" src="assets/img/logo.png" alt="Wearly" />
     <span class="preloader__word" data-text="WEARLY">WEARLY</span>
     <span class="preloader__tag">THRIFT IT · WEAR IT</span>
     <span class="preloader__bar"><span class="preloader__fill" id="preFill"></span></span>
@@ -47,7 +100,7 @@
 <header class="header" id="header">
   <nav class="nav container">
     <a href="#home" class="brand" aria-label="Wearly home">
-      <span class="brand__mark">W</span>
+      <img class="brand__mark" src="assets/img/logo.png" alt="Wearly logo" />
       <span class="brand__name">WEARLY<em>.</em></span>
     </a>
 
@@ -82,6 +135,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
   <div class="hero__bg" aria-hidden="true">
+    <span class="aurora"></span>
     <span class="blob blob--1"></span>
     <span class="blob blob--2"></span>
     <span class="hero__grid"></span>
@@ -143,8 +197,8 @@
 <!-- ============ MARQUEE ============ -->
 <div class="strip">
   <div class="strip__track">
-    <span>LINEN SHIRTS ✦ POLO TEES ✦ FIT JEANS ✦ CORD SETS ✦ SWEATERS ✦ DRESSES ✦ COATS ✦ RING TEES ✦ WAFFLE TEES ✦ DENIMS ✦ </span>
-    <span>LINEN SHIRTS ✦ POLO TEES ✦ FIT JEANS ✦ CORD SETS ✦ SWEATERS ✦ DRESSES ✦ COATS ✦ RING TEES ✦ WAFFLE TEES ✦ DENIMS ✦ </span>
+    <span>LINEN SHIRTS ✦ GRAPHIC TEES ✦ BAGGY JEANS ✦ HOODIES ✦ FLANNELS ✦ BOMBER JACKETS ✦ SLIM DENIMS ✦ OVERSIZED FITS ✦ IMPORTED STOCK ✦ </span>
+    <span>LINEN SHIRTS ✦ GRAPHIC TEES ✦ BAGGY JEANS ✦ HOODIES ✦ FLANNELS ✦ BOMBER JACKETS ✦ SLIM DENIMS ✦ OVERSIZED FITS ✦ IMPORTED STOCK ✦ </span>
   </div>
 </div>
 
@@ -374,7 +428,7 @@
   <div class="container footer__grid">
     <div class="footer__brand">
       <a href="#home" class="brand brand--footer">
-        <span class="brand__mark">W</span>
+        <img class="brand__mark" src="assets/img/logo.png" alt="Wearly logo" />
         <span class="brand__name">WEARLY<em>.</em></span>
       </a>
       <p>Aesthetic streetwear thrift store in Gwalior. Thrift it. Wear it.</p>
@@ -446,3 +500,5 @@
 
 <script src="js/main.js"></script>
 <script src="js/fx.js"></script>
+</body>
+</html>

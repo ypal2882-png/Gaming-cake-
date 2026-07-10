@@ -376,7 +376,7 @@
     });
     const msg = $("#formMsg");
     if (!ok) { msg.style.color = "#ff6b6b"; msg.textContent = "Please add your name & contact."; return; }
-    msg.style.color = "var(--lime)";
+    msg.style.color = "var(--acc)";
     msg.textContent = "✓ Sent! We'll reach out to hold your fit.";
     // Also offer WhatsApp handoff
     const wa = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
@@ -399,7 +399,7 @@
       msg.style.color = "#ff6b6b"; msg.textContent = "Enter a valid email.";
       return;
     }
-    msg.style.color = "var(--lime)";
+    msg.style.color = "var(--acc)";
     msg.textContent = "✓ You're on the list! Watch for the next drop.";
     news.reset();
   });

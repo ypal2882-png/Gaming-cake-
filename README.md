@@ -13,7 +13,9 @@ A premium, aesthetic website for **Wearly (Thrift Wearly)** — Gwalior's street
 - **Reviews slider** — auto-rotating testimonials with dot navigation.
 - **Instagram-style gallery**, animated stat counters, scrollspy nav, scroll-reveal animations.
 - **Contact & newsletter forms** with validation + WhatsApp hand-off, plus an embedded Google Map.
-- **Premium motion layer** (`js/fx.js`) — scroll progress bar, cursor glow, magnetic buttons, 3D tilt on the price card & product cards, hero mouse + scroll parallax, split-text heading reveals, staggered card entrances, film-grain overlay, glitch preloader and scroll-velocity-reactive marquees.
+- **On-brand identity** — real Wearly logo (header, preloader, footer, favicon) with a brand-blue accent system and JetBrains Mono technical labels.
+- **Premium motion layer** (`js/fx.js`) — animated aurora/colour background, scroll progress bar, cursor glow, magnetic buttons, 3D tilt on the price card & product cards, hero mouse + scroll parallax, split-text heading reveals, staggered card entrances, gradient sheen buttons, film-grain overlay, glitch preloader and scroll-velocity-reactive marquees.
+- **SEO-ready** — semantic document, Open Graph/Twitter cards, `ClothingStore` JSON-LD structured data for Google rich/local results, `robots.txt` and `sitemap.xml`.
 - **Fully responsive** with a mobile drawer nav, and respects `prefers-reduced-motion` (all effects disable cleanly).
 
 ## 🗂 Structure
