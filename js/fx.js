@@ -171,7 +171,7 @@
     const layers = [
       { el: $(".blob--1"), s: 26 },
       { el: $(".blob--2"), s: -22 },
-      { el: $(".hero__card"), s: 14 },
+      { el: $(".hero__feature"), s: 14 },
       { el: $(".hero__content"), s: -8 },
     ].filter((l) => l.el);
     let tx = 0, ty = 0, mx = 0, my = 0;

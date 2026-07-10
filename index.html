@@ -71,6 +71,9 @@
 <!-- ============ FILM GRAIN ============ -->
 <div class="grain" aria-hidden="true"></div>
 
+<!-- ============ EDITORIAL FRAME ============ -->
+<div class="site-frame" aria-hidden="true"></div>
+
 <!-- ============ PRELOADER ============ -->
 <div class="preloader" id="preloader">
   <div class="preloader__inner">
@@ -142,9 +145,14 @@
     <span class="hero__grid"></span>
   </div>
 
+  <span class="hero__ghost" aria-hidden="true">WEARLY</span>
+
   <div class="container hero__inner">
     <div class="hero__content">
-      <span class="hero__eyebrow reveal">📍 Patel Nagar · City Centre · Gwalior</span>
+      <div class="hero__meta reveal">
+        <span class="hero__eyebrow">📍 Patel Nagar · City Centre · Gwalior</span>
+        <span class="hero__idx">IDX — 001 / DROP&nbsp;SS'26</span>
+      </div>
       <h1 class="hero__title">
         <span class="reveal">THRIFT IT.</span>
         <span class="reveal outline">WEAR IT.</span>
@@ -168,23 +176,20 @@
       </div>
     </div>
 
-    <div class="hero__card" data-parallax="-20">
-      <div class="pricecard" data-tilt>
-        <div class="pricecard__top">
-          <span class="pricecard__tag">NEW DROP</span>
-          <span class="pricecard__heart">♡</span>
-        </div>
-        <div class="pricecard__art">
-          <span class="pricecard__big">W</span>
-          <img class="pricecard__img" src="assets/img/tee-editorial.jpeg" alt="Editorial streetwear fit from Wearly" loading="eager" onerror="this.remove()" />
-          <span class="pricecard__ribbon">FRESH IMPORTED STOCK</span>
-        </div>
-        <div class="pricecard__foot">
+    <div class="hero__feature" data-parallax="-18">
+      <div class="hero__feature-inner" data-tilt>
+        <img class="hero__feature-img" src="assets/img/tee-editorial.jpeg" alt="Editorial streetwear fit from Wearly" loading="eager" onerror="this.style.display='none'" />
+        <span class="hero__feature-tag">● NEW DROP</span>
+        <span class="hero__feature-corner">EST. 2024<br/>GWALIOR</span>
+        <span class="hero__feature-ribbon">FRESH IMPORTED STOCK</span>
+        <div class="hero__feature-foot">
           <div>
             <strong>Streetwear Bundle</strong>
-            <small>Curated · Limited</small>
+            <small>Curated · Limited edit</small>
           </div>
-          <span class="pricecard__price">from ₹49</span>
+          <a href="#shop" class="hero__feature-price">from ₹49
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
         </div>
       </div>
     </div>
