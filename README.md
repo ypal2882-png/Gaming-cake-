@@ -33,8 +33,18 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 
 Deploy anywhere static (GitHub Pages, Netlify, Vercel).
 
+## 🖼 Photos
+
+Product, gallery, hero and about images are **real, license-free photos served from Unsplash's CDN** (hotlink-friendly, no download needed). Every image has an `onerror` fallback, so if one ever fails to load the card gracefully falls back to the typographic design instead of showing a broken image.
+
+**To use your own photos** (e.g. your `@thriftwearly` shots): drop files into `assets/img/` and either
+- change the `img` id in the `products` array in `js/main.js`, or
+- replace the `src` with a local path like `assets/img/tee.jpg`.
+
+Hero & about photos are set directly in `index.html` (search for `unsplash`).
+
 ## 🔧 Customize
 
 - **WhatsApp number:** `WA_NUMBER` in `js/main.js`.
-- **Products:** the `products` array in `js/main.js`.
+- **Products / photos:** the `products` array in `js/main.js`.
 - **Colors / fonts:** CSS variables in `:root` at the top of `css/style.css`.

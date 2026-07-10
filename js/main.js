@@ -91,22 +91,26 @@
   /* ============================================================
      PRODUCT DATA
      ============================================================ */
+  // `img` = Unsplash photo id (loaded from Unsplash's free CDN, hotlink-friendly).
+  // Swap any id for your own store photo, or drop a local path (e.g. "assets/img/tee.jpg") into `src` below.
   const products = [
-    { id: 1, name: "Oversized Waffle Tee", cat: "tops", tag: "NEW", price: 199, was: 499, glyph: "TEE", note: "Cotton · Unisex" },
-    { id: 2, name: "Ring Graphic Tee", cat: "tops", tag: "HOT", price: 149, was: 399, glyph: "RING", note: "Streetwear fit" },
-    { id: 3, name: "Premium Linen Shirt", cat: "shirts", tag: "IMPORT", price: 349, was: 899, glyph: "LINEN", note: "Breathable · S–XL" },
-    { id: 4, name: "Classic Polo Tee", cat: "tops", tag: "", price: 179, was: 449, glyph: "POLO", note: "Everyday staple" },
-    { id: 5, name: "Slim Fit Denim", cat: "bottoms", tag: "NEW", price: 399, was: 1099, glyph: "JEANS", note: "Mid-rise · Blue" },
-    { id: 6, name: "Baggy Cargo Pants", cat: "bottoms", tag: "HOT", price: 449, was: 1199, glyph: "CARGO", note: "6-pocket · Y2K" },
-    { id: 7, name: "Floral Cord Set", cat: "women", tag: "IMPORT", price: 499, was: 1299, glyph: "CORD", note: "Co-ord · Women" },
-    { id: 8, name: "Slip Midi Dress", cat: "women", tag: "", price: 399, was: 999, glyph: "DRESS", note: "Satin finish" },
-    { id: 9, name: "Knitted Sweater", cat: "winter", tag: "COZY", price: 349, was: 899, glyph: "KNIT", note: "Warm · Oversized" },
-    { id: 10, name: "Longline Trench Coat", cat: "winter", tag: "IMPORT", price: 699, was: 1999, glyph: "COAT", note: "Statement layer" },
-    { id: 11, name: "Checked Casual Shirt", cat: "shirts", tag: "", price: 249, was: 649, glyph: "SHIRT", note: "Flannel feel" },
-    { id: 12, name: "Vintage Wash Jeans", cat: "bottoms", tag: "NEW", price: 429, was: 1149, glyph: "WASH", note: "Distressed · Retro" },
+    { id: 1, name: "Oversized Waffle Tee", cat: "tops", tag: "NEW", price: 199, was: 499, glyph: "TEE", note: "Cotton · Unisex", img: "1521572163474-6864f9cf17ab" },
+    { id: 2, name: "Ring Graphic Tee", cat: "tops", tag: "HOT", price: 149, was: 399, glyph: "RING", note: "Streetwear fit", img: "1503341504253-dff4815485f1" },
+    { id: 3, name: "Premium Linen Shirt", cat: "shirts", tag: "IMPORT", price: 349, was: 899, glyph: "LINEN", note: "Breathable · S–XL", img: "1602810318383-e386cc2a3ccf" },
+    { id: 4, name: "Classic Polo Tee", cat: "tops", tag: "", price: 179, was: 449, glyph: "POLO", note: "Everyday staple", img: "1586790170083-2f9ceadc732d" },
+    { id: 5, name: "Slim Fit Denim", cat: "bottoms", tag: "NEW", price: 399, was: 1099, glyph: "JEANS", note: "Mid-rise · Blue", img: "1542272604-787c3835535d" },
+    { id: 6, name: "Baggy Cargo Pants", cat: "bottoms", tag: "HOT", price: 449, was: 1199, glyph: "CARGO", note: "6-pocket · Y2K", img: "1517445312882-bc9910d016b7" },
+    { id: 7, name: "Floral Cord Set", cat: "women", tag: "IMPORT", price: 499, was: 1299, glyph: "CORD", note: "Co-ord · Women", img: "1595777457583-95e059d581b8" },
+    { id: 8, name: "Slip Midi Dress", cat: "women", tag: "", price: 399, was: 999, glyph: "DRESS", note: "Satin finish", img: "1566174053879-31528523f8ae" },
+    { id: 9, name: "Knitted Sweater", cat: "winter", tag: "COZY", price: 349, was: 899, glyph: "KNIT", note: "Warm · Oversized", img: "1576871337622-98d48d1cf531" },
+    { id: 10, name: "Longline Trench Coat", cat: "winter", tag: "IMPORT", price: 699, was: 1999, glyph: "COAT", note: "Statement layer", img: "1591047139829-d91aecb6caea" },
+    { id: 11, name: "Checked Casual Shirt", cat: "shirts", tag: "", price: 249, was: 649, glyph: "SHIRT", note: "Flannel feel", img: "1588359348347-9bc6cbbb689e" },
+    { id: 12, name: "Vintage Wash Jeans", cat: "bottoms", tag: "NEW", price: 429, was: 1149, glyph: "WASH", note: "Distressed · Retro", img: "1475178626620-a4d074967452" },
   ];
 
   const rupee = (n) => "₹" + n.toLocaleString("en-IN");
+  // Build an Unsplash CDN url. On failure the <img> removes itself, revealing the glyph fallback.
+  const photo = (id, w = 700) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
 
   /* ---------- Render products ---------- */
   const grid = $("#productGrid");
@@ -120,9 +124,10 @@
       <article class="card" data-cat="${p.cat}">
         <div class="card__media">
           <span class="card__pattern" style="background:repeating-linear-gradient(${45 + p.id * 12}deg,#1b1b1d,#1b1b1d 16px,#171718 16px,#171718 32px)"></span>
+          <span class="card__glyph">${p.glyph}</span>
+          <img class="card__img" src="${photo(p.img)}" alt="${p.name}" loading="lazy" onerror="this.remove()" />
           ${tagHtml}
           <button class="card__wish ${wished}" data-wish="${p.id}" aria-label="Add to wishlist">${heart}</button>
-          <span class="card__glyph">${p.glyph}</span>
         </div>
         <div class="card__body">
           <span class="card__cat">${p.cat === "tops" ? "Tees & Polos" : p.cat === "bottoms" ? "Denims" : p.cat}</span>
@@ -326,13 +331,23 @@
   /* ============================================================
      GALLERY
      ============================================================ */
-  const gtiles = ["NEW DROP", "TEES", "LINEN", "DENIM", "CORD SETS", "IMPORTED STOCK", "WINTER", "STREETWEAR"];
+  const gtiles = [
+    { t: "NEW DROP", img: "1489987707025-afc232f7ea0f" },
+    { t: "TEES", img: "1523381210434-271e8be1f52b" },
+    { t: "LINEN", img: "1596755094514-f87e34085b2c" },
+    { t: "DENIM", img: "1602810318383-e386cc2a3ccf" },
+    { t: "CORD SETS", img: "1595777457583-95e059d581b8" },
+    { t: "IMPORTED STOCK", img: "1441984904996-e0b6ba687e04" },
+    { t: "WINTER", img: "1576871337622-98d48d1cf531" },
+    { t: "STREETWEAR", img: "1503341504253-dff4815485f1" },
+  ];
   $("#gallery-grid").innerHTML = gtiles
     .map(
-      (t, i) => `
+      (g, i) => `
     <a href="https://www.instagram.com/thriftwearly/" target="_blank" rel="noopener" class="gtile" style="background:linear-gradient(${140 + i * 25}deg,var(--surface),var(--bg))">
-      <span class="gtile__glyph">${t.split(" ")[0]}</span>
-      <span class="gtile__over"><span>${t}</span></span>
+      <span class="gtile__glyph">${g.t.split(" ")[0]}</span>
+      <img class="gtile__img" src="${photo(g.img, 700)}" alt="${g.t}" loading="lazy" onerror="this.remove()" />
+      <span class="gtile__over"><span>${g.t}</span></span>
     </a>`
     )
     .join("");
